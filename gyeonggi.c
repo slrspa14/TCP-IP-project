@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
             for (int i = 0; i < 17; i++) // 문자열 15번 반복
             {
                 str2[i] = ptr2;
-                if (i==0 ||  i==5 || i==16) // 문자열내의 0,1,5,14 번 뽑는다
+                if (i==0 ||  i==10 || i==16) // 문자열내의 0,1,5,14 번 뽑는다
                 {
                     printf("%s,",str2[i]); 
                     send(sd, str2[i], strlen(str2[i]), 0); // 출력한것들 보낸다 한 줄씩
@@ -92,12 +92,12 @@ void send_13data(int sd,FILE *fp,char str_tmp[BUF_SIZE],char str[BUF_SIZE])
         {
             fgets(str_tmp, sizeof(str_tmp), fp);//받는다
             char *ptr = strtok(str_tmp,",");//자른다 쉼표기준으로
-            for (int i = 0; i < 15; i++) // 문자열 15번 반복
+            for (int i = 0; i < 17; i++) // 문자열 15번 반복
             {
                 str[i] = ptr;
-                if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
+                if (i==0 || i==5 || i==16) // 문자열내의 0,1,5,14 번 뽑는다
                 {
-                    printf("%s,",str[i]); 
+                    printf("%s,",str[i]);
                     send(sd, str[i], strlen(str[i]), 0); // 출력한것들 보낸다 한 줄씩
                     send(sd,",",1,0);
                 }
@@ -118,10 +118,10 @@ void send_14data(int sd, FILE *fp1, char str_tmp1[BUF_SIZE], char str1[BUF_SIZE]
         {
             fgets(str_tmp1, sizeof(str_tmp1), fp1);//받는다
             char *ptr1 = strtok(str_tmp1,",");//자른다 쉼표기준으로
-            for (int i = 0; i < 15; i++) // 문자열 15번 반복
+            for (int i = 0; i < 17; i++) // 문자열 15번 반복
             {
                 str1[i] = ptr1;
-                if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
+                if (i==0 || i==5 || i==16) // 문자열내의 0,1,5,14 번 뽑는다
                 {
                     printf("%s,",str1[i]); 
                     send(sd, str1[i], strlen(str1[i]), 0); // 출력한것들 보낸다 한 줄씩

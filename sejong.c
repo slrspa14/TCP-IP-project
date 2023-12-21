@@ -13,9 +13,9 @@ int main(int argc, char *argv[])
     FILE *fp;
     char str_tmp[BUF_SIZE]; // 파일 열고 넣을 배열
     char *str[BUF_SIZE]; // 파일 오픈 후 문자열 저장할 배열
-    char Max,Min,Average,Price;
     char buf[BUF_SIZE];
     int read_cnt;
+
     struct sockaddr_in serv_adr;
 
     if(argc !=3)
@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
         {
             fgets(str_tmp, sizeof(str_tmp), fp);//받는다
             char *ptr = strtok(str_tmp,",");//자른다 쉼표기준으로
-            for (int i = 0; i < 15; i++) // 문자열 15번 반복
+            for (int i = 0; i < 17; i++) // 문자열 15번 반복
             {
                 str[i] = ptr;
-                if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
+                if (i==0  || i==10 || i==16) // 문자열내의 0,1,5,14 번 뽑는다
                 {
                     printf("%s,",str[i]); 
                     send(sd, str[i], strlen(str[i]), 0); // 출력한것들 보낸다 한 줄씩
