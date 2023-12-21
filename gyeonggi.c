@@ -59,28 +59,28 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    while (!feof(fp1)) // fp1 끝 아니라면 반복
-    {   
-        while (!feof(fp1)) // fp1 파일의 끝이 아니라면 반복
-        {
-            fgets(str_tmp1, sizeof(str_tmp1), fp1);//받는다
-            char *ptr1 = strtok(str_tmp1,",");//자른다 쉼표기준으로
-            for (int i = 0; i < 15; i++) // 문자열 15번 반복
-            {
-                str1[i] = ptr1;
-                if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
-                {
-                    printf("%s,",str1[i]); 
-                    send(sd, str1[i], strlen(str1[i]), 0); // 출력한것들 보낸다 한 줄씩
-                    send(sd,",",1,0);
-                }
-                ptr1 = strtok(NULL,","); // 다음 문자열 자르고 포인터 반환
-            }
-            send(sd,"\n",1,0);
-            printf("\n");
-            break;
-        }
-    }
+    // while (!feof(fp1)) // fp1 끝 아니라면 반복
+    // {   
+    //     while (!feof(fp1)) // fp1 파일의 끝이 아니라면 반복
+    //     {
+    //         fgets(str_tmp1, sizeof(str_tmp1), fp1);//받는다
+    //         char *ptr1 = strtok(str_tmp1,",");//자른다 쉼표기준으로
+    //         for (int i = 0; i < 15; i++) // 문자열 15번 반복
+    //         {
+    //             str1[i] = ptr1;
+    //             if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
+    //             {
+    //                 printf("%s,",str1[i]); 
+    //                 send(sd, str1[i], strlen(str1[i]), 0); // 출력한것들 보낸다 한 줄씩
+    //                 send(sd,",",1,0);
+    //             }
+    //             ptr1 = strtok(NULL,","); // 다음 문자열 자르고 포인터 반환
+    //         }
+    //         send(sd,"\n",1,0);
+    //         printf("\n");
+    //         break;
+    //     }
+    // }
     puts("13,14 gyeonggi data send finish");
     fclose(fp);
     fclose(fp1);
