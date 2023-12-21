@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     char buf[BUF_SIZE]; // read용
     int read_cnt;// read용
     struct sockaddr_in serv_adr;
-
+asdasdsa
     if(argc !=3)
     {
         printf("Usage : %s <IP> <port> \n", argv[0]);
