@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
     fp = fopen("13busan.csv", "rt");//파일 열기
-    //fp1 = fopen("14busan.csv","rt");
+    fp1 = fopen("14busan.csv","rt");
     sd = socket(PF_INET,SOCK_STREAM,0);
     setlocale(LC_ALL, "en_US.UTF-8");
 
@@ -37,28 +37,28 @@ int main(int argc, char *argv[])
 
     connect(sd,(struct sockaddr*)&serv_adr,sizeof(serv_adr)); // 연결
 
-    while (!feof(fp))
-    {   
-        while (!feof(fp)) // fp 파일의 끝이 아니라면 반복
-        {
-            fgets(str_tmp, sizeof(str_tmp), fp);//받는다
-            char *ptr = strtok(str_tmp,",");//자른다 쉼표기준으로
-            for (int i = 0; i < 15; i++) // 문자열 15번 반복
-            {
-                str[i] = ptr;
-                if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
-                {
-                    printf("%s,",str[i]); 
-                    send(sd, str[i], strlen(str[i]), 0); // 출력한것들 보낸다 한 줄씩
-                    send(sd,",",1,0);
-                }
-                ptr = strtok(NULL,","); // 다음 문자열 자르고 포인터 반환
-            }
-            send(sd,"\n",1,0);
-            printf("\n");
-            break;
-        }
-    }
+    // while (!feof(fp))
+    // {   
+    //     while (!feof(fp)) // fp 파일의 끝이 아니라면 반복
+    //     {
+    //         fgets(str_tmp, sizeof(str_tmp), fp);//받는다
+    //         char *ptr = strtok(str_tmp,",");//자른다 쉼표기준으로
+    //         for (int i = 0; i < 15; i++) // 문자열 15번 반복
+    //         {
+    //             str[i] = ptr;
+    //             if (i==0 || i==1 || i==5 || i==14) // 문자열내의 0,1,5,14 번 뽑는다
+    //             {
+    //                 printf("%s,",str[i]); 
+    //                 send(sd, str[i], strlen(str[i]), 0); // 출력한것들 보낸다 한 줄씩
+    //                 send(sd,",",1,0);
+    //             }
+    //             ptr = strtok(NULL,","); // 다음 문자열 자르고 포인터 반환
+    //         }
+    //         send(sd,"\n",1,0);
+    //         printf("\n");
+    //         break;
+    //     }
+    // }
     while (!feof(fp1)) // fp1 끝 아니라면 반복
     {   
         while (!feof(fp1)) // fp1 파일의 끝이 아니라면 반복
