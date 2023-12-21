@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         printf("Usage : %s <IP> <port> \n", argv[0]);
         exit(1);
     }
-    fp = fopen("13seoul.csv", "rt");
+    fp = fopen("22sejong.csv", "rt");
     sd = socket(PF_INET,SOCK_STREAM,0);
 
     memset(&serv_adr, 0, sizeof(serv_adr));
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     connect(sd,(struct sockaddr*)&serv_adr,sizeof(serv_adr));
 
-     while (read_cnt = read() !=0)
+     while (read_cnt = read(sd,buf,sizeof(buf)) !=0)
     {   
         while (!feof(fp)) // fp 파일의 끝이 아니라면 반복
         {
